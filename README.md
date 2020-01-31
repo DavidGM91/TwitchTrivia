@@ -3,7 +3,7 @@
 
 # Configuration 
 Like with all node projects start by executing "npm install" on the root directory to install all dependencies.
-Before this project can work you need to asign it to a bot and at least one channel, to do so you will edit the config.json file with the next atributes:
+Before this project can work you need to asign it to a bot and at least one channel, to do so you will rename and edit the 'configTEMPLATE.json' file, renaming it to 'config.json' with the next atributes:
 
  - [ ] "username": Will hold the name of your bot.
  - [ ] "token": Will be your OAuth token, you can generate it here while being logged into twitch
