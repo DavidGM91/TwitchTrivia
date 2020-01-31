@@ -1,4 +1,4 @@
-const preguntas = require('./questions.json');
+const questions = require('./questions.json');
 const shuffle = require('shuffle-array')
 
 var estado = new Object();
@@ -19,35 +19,46 @@ module.exports = {
     nueva: (user, callback) => {
         var texto = "/me ";
         //Mirar si ya existe una pregunta activa
-        if(estado[user] != undefined && estado[user] != -1){
+        if(estado[user] == undefined)
+            estado[user] = {numCorrecta: -1,  strCorrecta: ""};
+        if(estado[user].numCorrecta != -1){
             //Informar de que ha perdido la pregunta.
-            texto += preguntas.existente;
+            texto += questions.unanswered;
         }
 
         //Obtener nueva pregunta.
-        const rand = Math.floor(Math.random() * preguntas.preguntas.length);
-        pregunta = preguntas.preguntas[rand];
+        const rand = Math.floor(Math.random() * questions.questions.length);
+        question = questions.questions[rand];
 
         //Mezclar opciones y correcta.
-        var correcta = pregunta.opciones[0]; 
-        var opciones = pregunta.opciones;
-        shuffle(opciones);
+        var correcta = question.options[0]; 
+        var options = question.options;
+        shuffle(options);
         const isRight = (element) => element == correcta;
 
         //Guardar estado del usuario
-        estado[user] = {numCorrecta: (opciones.findIndex(isRight) +1),  strCorrecta: correcta};
+        estado[user] = {numCorrecta: (options.findIndex(isRight) +1),  strCorrecta: correcta};
 
         //Devolver string para el chat.
-        texto += pregunta.pregunta +" "+ preguntas.opciones +" "+ numera(opciones);
+        texto += question.question +" "+ questions.options +" "+ numera(options);
         callback(texto);
     },
     responde: (user,respuesta,callback) => {
+        //Mirar si ya existe una pregunta activa
+        if(estado[user] == undefined)
+            estado[user] = {numCorrecta: -1,  strCorrecta: ""};
+        if(estado[user].numCorrecta == -1){
+            //Informar de que ha perdido la pregunta.
+            callback("/me "+questions.noQuestion.replace('#comand', questions.questionComand));
+            return;
+        }
+
         text = "/me ";
         if(estado[user].numCorrecta == respuesta){
-            text += preguntas.correcta.replace('#name', user).replace('#answer', estado[user].strCorrecta);
+            text += questions.right.replace('#name', user).replace('#answer', estado[user].strCorrecta);
         }
         else{
-            text += preguntas.erronea.replace('#name', user).replace('#answer', estado[user].strCorrecta);
+            text += questions.wrong.replace('#name', user).replace('#answer', estado[user].strCorrecta);
         }
         estado[user].numCorrecta = -1;
         callback(text);
