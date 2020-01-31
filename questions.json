@@ -1,0 +1,51 @@
+{
+    "preguntas": [
+        {
+            "pregunta": "¿En qué año el hombre pisó la Luna por primera vez?",
+            "opciones": [
+                "1969",
+                "1968",
+                "1970",
+                "1972"
+            ]
+        },
+        {
+            "pregunta": "¿A partir de qué suceso consideramos que termina la Edad Antigua y empieza la Edad Media?",
+            "opciones": [
+                "La caída del imperio romano de occidente.",
+                "La invención de la imprenta.",
+                "La unificación de la iglesia catolica.",
+                "El inicio de la santa inquisición."]
+        },
+        {
+            "pregunta": "¿Qué filósofo de la Antigua Grecia creía que el elemento del que están compuestas todas las cosas es el agua?",
+            "opciones": [
+                "Tales de Mileto.",
+                "René Descartes.",
+                "Sócrates.",
+                "El Rafita."]
+        },
+        {
+            "pregunta": "¿Cuál es el río más caudaloso del mundo?",
+            "opciones": [
+                "El Amazonas.",
+                "El Nilo.",
+                "El Niagra.",
+                "El Ebro."]
+        },
+        {
+            "pregunta": "¿Quien es el mod más sexy?",
+            "opciones": [
+                "Selur",
+                "Lezzito",
+                "La May",
+                "Er Kaisseh"]
+        }
+    ],
+    "opciones": "Opciones: ",
+    "correcta": "¡Enhorabuena @#name! Has acertado la pregunta.",
+    "erronea": "Lo siento @#name. Pero la respuesta correcta era #answer.",
+    "existente": "Has perdido la pregunta anterior, aquí está la nueva: ",
+    "language": "Castellano",
+    "version": "0.0.1 Test"
+}
