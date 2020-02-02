@@ -19,7 +19,7 @@
         },
         {
             "question": "¿Qué filósofo de la Antigua Grecia creía que el elemento del que están compuestas todas las cosas es el agua?",
-            "options": [
+            "options": [ 
                 "Tales de Mileto.",
                 "René Descartes.",
                 "Sócrates.",
@@ -34,6 +34,7 @@
                 "El Ebro."]
         }
     ],
+    "nonNumeralResponse": "Debes responder el número de la respuesta.",
     "noQuestion": "Primero haz una pregunta con #comand antes de responder",
     "questionComand": "!pregunta",
     "answerComand": "!respuesta",

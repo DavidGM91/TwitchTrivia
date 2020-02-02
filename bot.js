@@ -1,7 +1,7 @@
 const tmi = require('tmi.js');
 const config = require('./config.json');
 const trivia = require('./Trivia.js');
-const preguntas = require('./questions.json')
+const preguntas = require('./questions.json');
 
 // Define configuration options
 const opts = {
@@ -36,20 +36,13 @@ function onMessageHandler (target, context, msgraw, self) {
         {
            trivia.nueva(user, function (texto){
                 client.say(target, texto );
-            });   
+            });    
         }
         else if (msg[0] === preguntas.answerComand)
         {
-            if(typeof parseInt(msg[1]) == "number")
-            {
-                trivia.responde(user, msg[1], function (texto){
-                    client.say(target, texto );
-                });  
-            }
-            else 
-            {
-                client.say("/me Debes responder el número de la respuesta.");
-            }
+            trivia.responde(user, msg[1], function (texto){
+                client.say(target, texto );
+            });  
         }
     }
 }
