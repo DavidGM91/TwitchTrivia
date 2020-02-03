@@ -37,7 +37,7 @@ if(!fs.existsSync('./config.json'))
 }
 else
 {
-  config = require('./config.json') ;
+  config = require('./config.json');
   client = connect_to_Twitch();
 }
 

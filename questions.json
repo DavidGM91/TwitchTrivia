@@ -35,7 +35,7 @@
         }
     ],
     "nonNumeralResponse": "Debes responder con el número de la opción.",
-    "noQuestion": "Primero haz una pregunta con #comand antes de responder",
+    "noQuestion": "Primero haz una pregunta con !pregunta antes de responder",
     "options": "Opciones: ",
     "right": "¡Enhorabuena @#name! Has acertado la pregunta.",
     "wrong": "Lo siento @#name. Pero la respuesta correcta era #answer.",

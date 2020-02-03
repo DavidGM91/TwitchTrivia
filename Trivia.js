@@ -51,7 +51,7 @@ module.exports = {
         };
 
         //Devolver string para el chat.
-        texto += question.question +" "+ questions.options +" "+ numera(options);
+        texto += question.question.replace('#name', user) +" "+ questions.options +" "+ numera(options);
         callback(texto);
     },
     responde: (user,resp,callback) => {
@@ -60,7 +60,7 @@ module.exports = {
             estado[user] = {numCorrecta: -1,  strCorrecta: ""};
         if(estado[user].numCorrecta == -1){
             //Informar de que no hay ninguna pregunta
-            callback("/me "+questions.noQuestion.replace('#comand', questions.questionComand));
+            callback("/me "+questions.noQuestion.replace('#name', user));
             return;
         }
 
@@ -78,7 +78,7 @@ module.exports = {
         }
         else 
         {
-            text += questions.nonNumeralResponse;
+            text += questions.nonNumeralResponse.replace('#name', user);
         }
         
         
