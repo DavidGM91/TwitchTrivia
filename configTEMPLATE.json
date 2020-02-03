@@ -1,5 +1,0 @@
-{
-    "username": "<YourBotName>",
-    "token": "<YourOAuth token like oauth:numbers and letters",
-    "channels" : ["<chanel 1>","<chanel 2>"]
-}

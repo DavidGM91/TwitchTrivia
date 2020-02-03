@@ -34,10 +34,8 @@
                 "El Ebro."]
         }
     ],
-    "nonNumeralResponse": "Debes responder el número de la respuesta.",
+    "nonNumeralResponse": "Debes responder con el número de la opción.",
     "noQuestion": "Primero haz una pregunta con #comand antes de responder",
-    "questionComand": "!pregunta",
-    "answerComand": "!respuesta",
     "options": "Opciones: ",
     "right": "¡Enhorabuena @#name! Has acertado la pregunta.",
     "wrong": "Lo siento @#name. Pero la respuesta correcta era #answer.",
