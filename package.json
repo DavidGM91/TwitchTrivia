@@ -4,6 +4,7 @@
   "description": "",
   "main": "bot.js",
   "dependencies": {
+    "sqlite3": "^4.1.1",
     "tmi.js": "^1.5.0"
   },
   "devDependencies": {},

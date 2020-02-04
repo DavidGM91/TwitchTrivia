@@ -24,6 +24,8 @@ if(!fs.existsSync('./config.json'))
           rl.question("The command to answer a question(starting with !): ", function(res){
             _config.answerComand = res;
             console.log("Congratulations you've completed the configuration of your bot");
+            _config.defaultCategories = ["General"];
+            _config.customCategories = new Object();
             config = _config;
             fs.writeFile('config.json',JSON.stringify(_config,null,2), function (err){
               console.log('Saved new configuration file.');
@@ -76,7 +78,7 @@ function onMessageHandler (target, context, msgraw, self) {
         // If the command is known, let's execute it
         if (msg[0] === config.questionComand)
         {
-           trivia.nueva(user, function (texto){
+           trivia.nueva(user, target.substr(1), function (texto){
                 client.say(target, texto );
             });    
         }

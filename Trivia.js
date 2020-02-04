@@ -1,6 +1,14 @@
 const questions = require('./questions.json');
+const config = require('./config.json');
+const sqlite3 = require('sqlite3');
 
 var estado = new Object();
+
+var db = new sqlite3.Database('./puntos.sqlite3', (err) => {
+    if (err) {
+      console.error(err.message);
+    }
+  });
 
 function numera(array)
 {
@@ -24,7 +32,7 @@ function aleatoria(_array) {
 }
 
 module.exports = {
-    nueva: (user, callback) => {
+    nueva: (user, target, callback) => {
         var texto = "/me ";
         //Mirar si ya existe una pregunta activa
         if(estado[user] == undefined)
@@ -34,13 +42,21 @@ module.exports = {
             texto += questions.unanswered;
         }
 
-        //Obtener nueva pregunta.
-        var rand = Math.floor(Math.random() * questions.questions.length);
-        var question = questions.questions[rand];
+        //Obtener categoría.
+        let categories = config.defaultCategories || ["General"];
+        if(config.customCategories.hasOwnProperty(target)){
+            categories = categories.concat(config.customCategories[target]);
+        }
+        let randCat = Math.floor(Math.random() * categories.length);
+        let category = categories[randCat];
+
+        //Obtener pregunta
+        let rand = Math.floor(Math.random() * questions.category[category].questions.length);
+        let question = questions.category[category].questions[rand];
 
         //Mezclar opciones y correcta.
-        var correcta = question.options[0]; 
-        var options = aleatoria(question.options);
+        let correcta = question.options[0]; 
+        let options = aleatoria(question.options);
         const isRight = (element) => element == correcta;
 
         //Guardar estado del usuario
